@@ -1,6 +1,4 @@
-# [Tabchi | v.1](https://telegram.me/Titanteams)
 
-تبچی خودت رو بساز ;)
 
 
 * * *
@@ -16,8 +14,8 @@
 # نصب
 
 ```sh
-git clone https://github.com/liteTeam/tabchii
-cd tabchii
+git clone https://github.com/alikineh/Tab
+cd Tab
 chmod +x bot
 ./bot install
 # and send [y] to finish install
@@ -33,7 +31,7 @@ chmod +x bot
 ## ساخت ربات های بیش تر
 
 ```sh
-cd tabchii
+cd Tab
 ./bot create
 ./bot number of bot >> شماره رباتی که به شما میدهد
 وارد کردن ایدی عددی سودو#
@@ -42,16 +40,8 @@ cd tabchii
 * * *
 ## اتولاچ
 ```sh
-cd tabchii
+cd Tab
 ./bot autolaunch
 تمام ربات ها راه اندازی میشوند بدون خاموشی#
 ```
 ***
-### اموزش ها
-
-[اموزش کامل نصب](https://telegram.me/Lite_team)
-
-### Developers
-[mohammadstar](https://telegram.me/mohammadstar_98)
-### channel
-[Lite Team](https://telegram.me/Lite_team)
