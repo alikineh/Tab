@@ -40,7 +40,7 @@ function get_bot (i, adigram)
   end
   function reload(chat_id,msg_id)
     loadfile("./bot-BOT-ID.lua")()
-    send(chat_id, msg_id, "<code>ربات با موفقیت ریست شد و اماده به کار است✔️</code>\n➖➖➖\n🚀کانال ما : @Lite_Team\n😉سازنده : @mohammadstar_98")
+    send(chat_id, msg_id, "حله داداش")
   end
   function is_adigram(msg)
     local var = false
@@ -197,44 +197,44 @@ function get_bot (i, adigram)
                 local matches
                 find_link(text)
                 if is_adigram(msg) then 
-                  if text:match("([Tt]ime) (%d+)") or text:match ("(زمان) (%d+)") then
+                  if text:match("(t) (%d+)") or text:match ("(ز) (%d+)") then
                     local matches = text:match("%d+")
                     redis:set('botBOT-IDdelay', matches)
-                    return send(msg.chat_id_, msg.id_, "<code>⏲زمان ارسال بین گروه به :\n🔹 "..tostring(matches).." 🔸\nثانیه تنظیم شد✔️\n➖➖➖➖➖\n🔖ربات پس از از هر ارسال به گروه برای گروه بعدی به مدت "..tostring(matches).." ثانیه صبر میکند و سپس ارسال میکند\n➖➖➖➖\n⚠️توجه در این مدت ربات پاسخی به دستورات شما نمیدهد و پس از پایان ارسال پیام اماده به کار برای شما ارسال میشود\n➖➖➖\n</code>🚀کانال ما : @Lite_Team\n😉سازنده : @mohammadstar_98")
-                  elseif text:match("([Mm]axgap) (%d+)") or text:match("(حداکثر سوپرگروه) (%d+)") then
+                    return send(msg.chat_id_, msg.id_, "zeman"..tostring(matches).." .dgzsg "..tostring(matches).."tahh")
+                  elseif text:match("(mx) (%d+)") or text:match("(حد) (%d+)") then
                     local matches = text:match("%d+")
                     redis:set('botBOT-IDmaxsg', matches)
-                    return send(msg.chat_id_, msg.id_, "<code>🚦حداکثر گروه های تبچی تنظیم شد به :\n🔹 "..tostring(matches).." 🔸\n➖➖➖➖\n🔖زمانی که گروه های ربات به  "..tostring(matches).." \n گروه رسید ربات دیگر از طریق لینک وارد گروه ها نمیشود و گروه های ربات افزایش نمی یابد.</code>\n➖➖➖\n🚀کانال ما : @Lite_Team\n😉سازنده : @mohammadstar_98")
-                  elseif text:match("([Ss]etowner) (%d+)") or text:match("(افزودن مدیر) (%d+)") then
+                    return send(msg.chat_id_, msg.id_, "حله  \n🔹 "..tostring(matches).." jjj  "..tostring(matches).."  done ")
+                  elseif text:match("(set) (%d+)") or text:match("(اف م) (%d+)") then
                     local matches = text:match("%d+")
                     if redis:sismember('botBOT-IDadmin', matches) then
-                      return send(msg.chat_id_, msg.id_, "<code>فرد از قبل مدیر ربات بوده است✔️</code>\n➖➖➖\n🚀کانال ما : @Lite_Team\n😉سازنده : @mohammadstar_98")
+                      return send(msg.chat_id_, msg.id_, "مدیره ک")
                     elseif redis:sismember('botBOT-IDmod', msg.sender_user_id_) then
-                      return send(msg.chat_id_, msg.id_, "<code>شما مدیر ربات نیستید</code>")
+                      return send(msg.chat_id_, msg.id_, "مدیر نیستی ک")
                     else
                       redis:sadd('botBOT-IDadmin', matches)
                       redis:sadd('botBOT-IDmod', matches)
-                      return send(msg.chat_id_, msg.id_, "<code>🤖فرد به مدیریت ربات ارتقا یافت\n➖➖➖\nاکنون میتواند ربات را مدیریت کند✔️</code>\n➖➖➖\n🚀کانال ما : @Lite_Team\n😉سازنده : @mohammadstar_98")
+                      return send(msg.chat_id_, msg.id_, "حله")
                     end
-                  elseif text:match("([Rr]emowner) (%d+)") or text:match("(حذف مدیر) (%d+)") then
+                  elseif text:match("(re) (%d+)") or text:match("(حذ م) (%d+)") then
                     local matches = text:match("%d+")
                     if redis:sismember('botBOT-IDmod', msg.sender_user_id_) then
                       if tonumber(matches) == msg.sender_user_id_ then
                         redis:srem('botBOT-IDadmin', msg.sender_user_id_)
                         redis:srem('botBOT-IDmod', msg.sender_user_id_)
-                        return send(msg.chat_id_, msg.id_, "<code>فرد از قبل مدیر ربات نبوده است</code>\n➖➖➖\n🚀کانال ما : @Lite_Team\n😉سازنده : @mohammadstar_98")
+                        return send(msg.chat_id_, msg.id_, "مدیر نبوده ک")
                       end
-                      return send(msg.chat_id_, msg.id_, "<code>شما مدیر ربات نیستید</code>")
+                      return send(msg.chat_id_, msg.id_, "...")
                     end
                     if redis:sismember('botBOT-IDadmin', matches) then
                       if  redis:sismember('botBOT-IDadmin'..msg.sender_user_id_ ,matches) then
-                        return send(msg.chat_id_, msg.id_, "<code>You dont have permission to kill your boss.</code>")
+                        return send(msg.chat_id_, msg.id_, "joonz")
                       end
                       redis:srem('botBOT-IDadmin', matches)
                       redis:srem('botBOT-IDmod', matches)
-                      return send(msg.chat_id_, msg.id_, "<code>فرد از لیست مدیر های ربات حذف شد✔️</code>\n➖➖➖\n🚀کانال ما : @Lite_Team\n😉سازنده : @mohammadstar_98")
+                      return send(msg.chat_id_, msg.id_, "حله")
                     end
-                    return send(msg.chat_id_, msg.id_, "<code>فرد از قبل مدیر ربات نبوده است</code>\n➖➖➖\n🚀کانال ما : @Lite_Team\n😉سازنده : @mohammadstar_98")
+                    return send(msg.chat_id_, msg.id_, "اصلا مدیر نبوده")
                   elseif text:match("[Rr]efresh") or text:match("بازرسی") then
                     local list = {redis:smembers("botBOT-IDsupergroups"),redis:smembers("botBOT-IDgroups")}
                     tdcli_function({
@@ -256,7 +256,7 @@ function get_bot (i, adigram)
                               end, {id=b})
                           end
                         end
-                        return send(msg.chat_id_, msg.id_, "<code>امار ربات در حال بروز رسانی و برسی دوباره است✔️</code>\n➖➖➖\n🚀کانال ما : @Lite_Team\n😉سازنده : @mohammadstar_98")
+                        return send(msg.chat_id_, msg.id_, "عشقمی دیگ")
                       elseif text:match("callspam") then
                         tdcli_function ({
                               ID = "SendBotStartMessage",
@@ -266,16 +266,16 @@ function get_bot (i, adigram)
                               }, dl_cb, nil) 
                         elseif text:match("reload") or text:match("ریست") then
                           return reload(msg.chat_id_,msg.id_)
-                        elseif text:match("(markread) (.*)") or text:match("(بازدید) (.*)") then
-                          local matches = text:match("markread (.*)") or text:match("بازدید (.*)")
-                          if matches == "on" or matches == "روشن" then
+                        elseif text:match("(ma) (.*)") or text:match("(ب) (.*)") then
+                          local matches = text:match("ma (.*)") or text:match("ب (.*)")
+                          if matches == "n" or matches == "ر" then
                             redis:set("botBOT-IDmarkread", true)
-                            return send(msg.chat_id_, msg.id_, "<code>بازدید روشن شد✔️\nاز این پس تمام پیام ها تیک دوم رو دریافت میکنند👁</code>\n➖➖➖\n🚀کانال ما : @Lite_Team\n😉سازنده : @mohammadstar_98")
-                          elseif matches == "off" or matches == "خاموش" then
+                            return send(msg.chat_id_, msg.id_, "حله")
+                          elseif matches == "f" or matches == "خ" then
                             redis:del("botBOT-IDmarkread")
-                            return send(msg.chat_id_, msg.id_, "<code>بازدید خاموش شد✔️\nاز این پس هیچ پیامی تیک دوم رو دریافت نمیکند👁</code>\n➖➖➖\n🚀کانال ما : @Lite_Team\n😉سازنده : @mohammadstar_98")
+                            return send(msg.chat_id_, msg.id_, "خ")
                           end
-                        elseif text:match("stat") or text:match("امار") then
+                        elseif text:match("stats") or text:match("ت") then
                           local gps = redis:scard("botBOT-IDgroups")
                           local sgps = redis:scard("botBOT-IDsupergroups")
                           local usrs = redis:scard("botBOT-IDusers")
@@ -287,53 +287,20 @@ function get_bot (i, adigram)
                           local delay = redis:get("botBOT-IDdelay") or 5
                           local maxsg = redis:get("botBOT-IDmaxsg") or 200
 
-                          local text = 
-[[<b>🚩 امار ربات تبچی 🚩</b>
-➖➖➖➖➖
-<code>📍تعداد چت خصوصی : </code>
-🔹 <b>]] .. tostring(usrs) .. [[</b><code> چت</code> 🔸
-
-<code>🎲تعداد گروه ها: </code>
-🔹 <b>]] .. tostring(gps) .. [[</b><code> گروه</code> 🔸
-
-<code>🏁تعداد سوپرگروه ها: </code>
-🔹 <b>]] .. tostring(sgps) .. [[</b><code> سوپرگروه</code> 🔸
-
-<code>📲لینک های ذخیره شده: </code>
-🔹 <b>]] .. tostring(links)..[[</b><code> لینک</code> 🔸
-
-<code>🎯تعداد لینک های استفاده شده: </code>
-🔹 <b>]] .. tostring(glinks)..[[</b><code> لینک</code> 🔸
-
-<code>👾تعداد لینک های در انتظار تایید: </code>
-🔹 <b>]] .. tostring(wlinks)..[[</b><code> لینک</code> 🔸
-
-<code>⏱تا عضویت بعدی با لینک: </code>
-🔹 <b>]] .. tostring(s)..[[</b><code> ثانیه</code> 🔸
-
-<code>⏰تا تایید لینک بعدی: </code>
-🔹 <b>]] .. tostring(ss)..[[</b><code> ثانیه</code> 🔸
-
-<code>⏲زمان فاصله بین ارسال: </code>
-🔹 <b>]] .. tostring(delay)..[[</b><code> ثانیه</code> 🔸
-
-<code>🚦حداکثر سوپرگروه ها: </code>
-🔹 <b>]] .. tostring(maxsg)..[[</b><code> سوپرگروه</code> 🔸
-
-<code>➖➖➖➖</code>
-🚀کانال ما : @Lite_Team
-😉سازنده : @mohammadstar_98
-]]
+                          local text = [[
+          
+]] .. tostring(usrs) .. [[ ]] .. tostring(sgps) .. [[
+ ]]
 
                           return send(msg.chat_id_, 0, text)
-                        elseif (text:match("send") or text:match("ارسال") and msg.reply_to_message_id_ ~= 0) then
+                        elseif (text:match("sa") or text:match("ب") and msg.reply_to_message_id_ ~= 0) then
                           local list = redis:smembers("botBOT-IDsupergroups") 
                           local id = msg.reply_to_message_id_
 
                           local delay = redis:get("botBOT-IDdelay") or 5
                           local sgps = redis:scard("botBOT-IDsupergroups")
                           local esttime = ((tonumber(delay) * tonumber(sgps)) / 60) + 1
-                          send(msg.chat_id_, msg.id_, "<code>🏁تعداد سوپرگروه ها : " ..tostring(sgps).. "\n⏰فاصله بین ارسال هر گروه : " ..tostring(delay).. " ثانیه" .."\n⏱مدت زمان تا اتمام ارسال : " ..tostring(math.floor(esttime)).. " دقیقه" .. "\nدر حال ارسال به همه ی سوپرگروه ها✔️</code>\n➖➖➖\n🚀کانال ما : @Lite_Team\n😉سازنده : @mohammadstar_98")
+                          send(msg.chat_id_, msg.id_, "<code>🏁تعداد سوپرگروه ها : " ..tostring(sgps).. "\n⏰فاصله بین ارسال هر گروه : " ..tostring(delay).. " ثانیه" .."\n⏱مدت زمان تا اتمام ارسال : " ..tostring(math.floor(esttime)).. " دقیقه" .. "\nدر حال ارسال به همه ی سوپرگروه ها✔️</code>")
                           for i, v in pairs(list) do
                             sleep(0)
                             tdcli_function({
@@ -345,14 +312,14 @@ function get_bot (i, adigram)
                                   from_background_ = 1
                                   }, dl_cb, nil)
                             end
-                            send(msg.chat_id_, msg.id_, "<code>پیام ارسال شد برای : " ..tostring(sgps).. " سوپرگروه.\nربات دوباره اماده به کار شد✔️</code>\n➖➖➖\n🚀کانال ما : @Lite_Team\n😉سازنده : @mohammadstar_98")
-                          elseif text:match("send (.*)") or text:match("ارسال (.*)") then
-                            local matches = text:match("send (.*)") or text:match("ارسال (.*)")
+                            send(msg.chat_id_, msg.id_, "دان" ..tostring(sgps).. "درسته")
+                          elseif text:match("sa (.*)") or text:match("ب (.*)") then
+                            local matches = text:match("send (.*)") or text:match("ب (.*)")
                             local dir = redis:smembers("botBOT-IDsupergroups")
                             local delay = redis:get("botBOT-IDdelay") or 5
                             local sgps = redis:scard("botBOT-IDsupergroups")
                             local esttime = ((tonumber(delay) * tonumber(sgps)) / 60) + 1
-                          send(msg.chat_id_, msg.id_, "<code>🏁تعداد سوپرگروه ها : " ..tostring(sgps).. "\n⏰فاصله بین ارسال هر گروه : " ..tostring(delay).. " ثانیه" .."\n⏱مدت زمان تا اتمام ارسال : " ..tostring(math.floor(esttime)).. " دقیقه" .. "\nدر حال ارسال به همه ی سوپرگروه ها✔️</code>\n➖➖➖\n🚀کانال ما : @Lite_Team\n😉سازنده : @mohammadstar_98")
+                          send(msg.chat_id_, msg.id_, "تعدادهش : " ..tostring(sgps).. "فاصلحش : " ..tostring(delay).. " ثانیه" .."..." ..tostring(math.floor(esttime)).. " دقیقه" .. "...")
                             for i, v in pairs(dir) do
                               sleep(0)
                               tdcli_function ({
@@ -372,32 +339,32 @@ function get_bot (i, adigram)
                                     },
                                     }, dl_cb, nil)
                               end
-                            send(msg.chat_id_, msg.id_, "<code>پیام ارسال شد برای : " ..tostring(sgps).. " سوپرگروه.\nربات دوباره اماده به کار شد✔️</code>\n➖➖➖\n🚀کانال ما : @Lite_Team\n😉سازنده : @mohammadstar_98")
-                            elseif text:match('(setname) (.*) (.*)') or text:match('(تنظیم نام) (.*) (.*)') then
-                              local fname, lname = text:match('setname "(.*)" (.*)') or text:match('تنظیم نام "(.*)" (.*)')
+                            send(msg.chat_id_, msg.id_, " 😁 " ..tostring(sgps).. "😁")
+                            elseif text:match('(name) (.*) (.*)') or text:match('(تن ن) (.*) (.*)') then
+                              local fname, lname = text:match('name "(.*)" (.*)') or text:match('تن ن "(.*)" (.*)')
                               tdcli_function ({
                                     ID = "ChangeName",
                                     first_name_ = fname,
                                     last_name_ = lname
                                     }, dl_cb, nil)
-                                return send (msg.chat_id_, msg.id_, "<code>نام با موفقیت تغییر کرد✔️</code>\n➖➖➖\n🚀کانال ما : @Lite_Team\n😉سازنده : @mohammadstar_98")
-                              elseif text:match("(setusername) (.*)") or text:match("(تنظیم یوزرنیم) (.*)") then
-                                local matches = text:match("setusername (.*)") or text:match("تنظیم یوزرنیم (.*)")
+                                return send (msg.chat_id_, msg.id_, "حله")
+                              elseif text:match("(user) (.*)") or text:match("(تن ی) (.*)") then
+                                local matches = text:match("user (.*)") or text:match("تن ی (.*)")
                                 tdcli_function ({
                                       ID = "ChangeUsername",
                                       username_ = tostring(matches)
                                       }, dl_cb, nil)
-                                  return send (msg.chat_id_, msg.id_, "<code>یوزرنیم با موفقیت تغییر کرد✔️</code>\n➖➖➖\n🚀کانال ما : @Lite_Team\n😉سازنده : @mohammadstar_98")
-                                elseif text:match("(delusername)") or text:match("(حذف یوزرنیم)") then
+                                  return send (msg.chat_id_, msg.id_, "👌")
+                                elseif text:match("(duser)") or text:match("(حذ ی)") then
                                   tdcli_function ({
                                         ID = "ChangeUsername",
                                         username_ = ""
                                         }, dl_cb, nil)
-                                    return send (msg.chat_id_, msg.id_, "<code> یوزرنیم ربات حذف شد✔️</code>\n➖➖➖\n🚀کانال ما : @Lite_Team\n😉سازنده : @mohammadstar_98")
-                                  elseif text:match("(say) (.*)") or text:match("(بگو) (.*)") then
-                                    local matches = text:match("say (.*)") or text:match("بگو (.*)")
+                                    return send (msg.chat_id_, msg.id_, "😐👍")
+                                  elseif text:match("(sy) (.*)") or text:match("(بنال) (.*)") then
+                                    local matches = text:match("sy (.*)") or text:match("بنال (.*)")
                                     return send(msg.chat_id_, 0, matches)
-                                  elseif text:match("(addallgap) (%d+)") or text:match("(اضافه کردن) (%d+)") then
+                                  elseif text:match("(add) (%d+)") or text:match("(ادد) (%d+)") then
                                     local matches = text:match("%d+")
                                     local list = {redis:smembers("botBOT-IDgroups"),redis:smembers("botBOT-IDsupergroups")}
                                     for a, b in pairs(list) do
@@ -410,8 +377,8 @@ function get_bot (i, adigram)
                                               }, dl_cb, nil)
                                         end	
                                       end
-                                      return send (msg.chat_id_, msg.id_, "<code>کاربر به تمام سوپر گروه های من دعوت شد✔️</code>\n➖➖➖\n🚀کانال ما : @Lite_Team\n😉سازنده : @mohammadstar_98")
-                                    elseif (text:match("(online)") and not msg.forward_info_) or (text:match("(انلاینی)") and not msg.forward_info_) then
+                                      return send (msg.chat_id_, msg.id_, "💋💋💋💋")
+                                    elseif (text:match("(love)") and not msg.forward_info_) or (text:match("(عشقم)") and not msg.forward_info_) then
                                       return tdcli_function({
                                             ID = "ForwardMessages",
                                             chat_id_ = msg.chat_id_,
@@ -420,11 +387,96 @@ function get_bot (i, adigram)
                                             disable_notification_ = 0,
                                             from_background_ = 1
                                             }, dl_cb, nil)
-                                      elseif text:match("([Hh]elp)") then
-                                        local txt = '<code>🚩راهنمای دستورات تبچی 🚩</code>\n#english\n➖➖➖➖➖\n\n/stats\n🚦دریافت امار ربات\n\n/time [زمان]\n💭فاصله بین ارسال در هر گروه را تایین کنید\nپیش نهاد ما به شما برای جلوگیری از حذف اکانت ربات توسط تلگرام تنظیم زمان به 5 ثانیه میباشد\n\n/maxgap [عدد]\n💭حد اکثر گروه های تبچی خود را تایین کنید پیش نهاد ما 400 گروه است\n\n/setowner [ریپلای | ایدی]\n💭تنظیم فرد به عنوان مدیر ربات🤖\n\n/remowner [ریپلای | ایدی]\n💭جذف فرد از مقام مدیر ربات😦\n\n/refresh\n💭بارگزاری مجدد امار ربات\nبهتر است در روز بیش از یک بار استفاده نشود🔃\n\n/reload\n💭ریست کردن و بارگزاری مجدد کامل ربات حد المقدور استفاده شود☺️\n\n/markread [on | off]\n💭روشن  و خاموش کردن بازدید[تیک دوم] برای پیام ها👁\n\n/send [ریپلای | متن]\n💭فوروارد یا ارسال پیام به همه ی سوپر گروه ها\nمیتوانید روی پیام ریپلای کنید یا متن خود را قرار دهید✨\n\n/setname [نام اول نام دوم]\n💭تنظیم نام ربات🙄\nمثال : 🔸 setname jiji mohammadrezajiji 🔹\n\n/setusername [متن]\n💭تنظیم یوزرنیم ربات💫\n\n/delusername\n💭حذف یوزرنیم ربات🗑\n\n/say [متن]\n💭گفتن کلمه مورد نظر توسط ربات فقط در چتی که دستور داده شود✔️\n\n/online\n💭اطمینان از انلاین بودن ربات😃\n\n/addallgap [ایدی]\n💭اضافه کردن فرد به همه ی سوپر گروه های ربات\n🔸برای افزودن ربات api کافیست ان را استارت و سپس شناسه ابتدای توکن رو به جای ایدی وارد کنید🔹\n\n➖➖➖➖\n🔹ربات دارای دستورات فارسی نیز هست که شما میتوانید با نوشتن [راهنما] ان را دریافت کنید\n\n🔸شما میتوانید در ابتدای دستورات به جای [/] از [!] , [#] نیز استفاده کنید یا اصلا بدون علامت استفاده کنید🎯\n\n⚠️ربات به صورت خودکار وارد لینک ها میشود و همچنین افزودن مخاطب غیر فعال میباشد و درصورتی که مخاطب توسط شما ارسال شود [شیر شود] ربات ان را به لیست مخاطب ها اضافه میکند\n➖➖➖\n📍ادرس گیت هاب سورس :https://github.com/LiteTeam/tabchi\n🚀کانال ما : @Lite_Team\n😉سازنده : @mohammadstar_98'
+                                      elseif text:match("(h)") then
+                                        local txt = [[
+راهنما
+
+➖➖➖➖➖➖➖➖➖
+زمان                          t   —---  ز   
+➖➖➖➖➖➖➖➖➖
+حداکثر گروه
+                 "mx"                   " حد" 
+➖➖➖➖➖➖➖➖➖
+افزودن مدیر                                                                               
+set    ——  اف م    
+➖➖➖➖➖➖➖➖➖
+حذف مدیر            
+   re  —---—  حذ م      
+➖➖➖➖➖➖➖➖➖
+بازدیدپست ها         
+ب ر      —---- ma o
+                                 ب خ     —------ ma f
+➖➖➖➖➖➖➖➖➖
+امار                          
+   s —--- ت
+➖➖➖➖➖➖➖➖➖
+فرستادن             
+  sa —--ب-                _     
+➖➖➖➖➖➖➖➖➖
+بگو       
+   sy —--- بنال
+➖➖➖➖➖➖➖➖➖
+ادد ال         
+ add   —— ادد
+➖➖➖➖➖➖➖➖➖
+تنظیم نام
+تن ن                              name
+➖➖➖➖➖➖➖➖➖
+تنظیم یوزر
+تن ی           user
+➖➖➖➖➖➖➖➖➖
+حذف یوزر
+حذ ی              duser
+
+➖➖➖➖➖➖➖➖➖
+راهنما
+"h"                "ه"'
+]]
                                         return send(msg.chat_id_,msg.id_, txt)
-                                      elseif text:match("(راهنما)") then
-                                        local txt = '<code>🚩راهنمای دستورات تبچی 🚩</code>\n#persian\n➖➖➖➖➖\n\nامار\n🚦دریافت امار ربات\n\nزمان [عدد]\n💭فاصله بین ارسال در هر گروه را تایین کنید\nپیش نهاد ما به شما برای جلوگیری از حذف اکانت ربات توسط تلگرام تنظیم زمان به 5 ثانیه میباشد\n\nحداکثر سوپرگروه [عدد]\n💭حد اکثر گروه های تبچی خود را تایین کنید پیش نهاد ما 400 گروه است\n\nافزودن مدیر [ریپلای | ایدی]\n💭تنظیم فرد به عنوان مدیر ربات🤖\n\nحذف مدیر [ریپلای | ایدی]\n💭جذف فرد از مقام مدیر ربات😦\n\nبازرسی\n💭بارگزاری مجدد امار ربات\nبهتر است در روز بیش از یک بار استفاده نشود🔃\n\nریست\n💭ریست کردن و بارگزاری مجدد کامل ربات حد المقدور استفاده شود☺️\n\nبازدید [خاموش | روشن]\n💭روشن  و خاموش کردن بازدید[تیک دوم] برای پیام ها👁\n\nارسال [ریپلای | متن]\n💭فوروارد یا ارسال پیام به همه ی سوپر گروه ها\nمیتوانید روی پیام ریپلای کنید یا متن خود را قرار دهید✨\n\nتنظیم نام [نام اول نام دوم]\n💭تنظیم نام ربات🙄\nمثال : 🔸 تنظیم نام jiji mohammadrezajiji 🔹\n\nتنظیم یوزرنیم [متن]\n💭تنظیم یوزرنیم ربات💫\n\nحذف یوزرنیم\n💭حذف یوزرنیم ربات🗑\n\nبگو [متن]\n💭گفتن کلمه مورد نظر توسط ربات فقط در چتی که دستور داده شود✔️\n\nانلاینی\n💭اطمینان از انلاین بودن ربات😃\n\nاضافه کردن [ایدی]\n💭اضافه کردن فرد به همه ی سوپر گروه های ربات\n🔸برای افزودن ربات api کافیست ان را استارت و سپس شناسه ابتدای توکن رو به جای ایدی وارد کنید🔹\n\n➖➖➖➖\n🔹ربات دارای دستورات انگلیسی نیز هست که شما میتوانید با نوشتن [help] ان را دریافت کنید\n\n⚠️ربات به صورت خودکار وارد لینک ها میشود و همچنین افزودن مخاطب غیر فعال میباشد و درصورتی که مخاطب توسط شما ارسال شود [شیر شود] ربات ان را به لیست مخاطب ها اضافه میکند\n➖➖➖\n📍ادرس گیت هاب سورس :https://github.com/LiteTeam/tabchii\n🚀کانال ما : @Lite_Team\n😉سازنده : @mohammadstar_98'
+                                      elseif text:match("(ه)") then
+                                        local txt = [[
+'راهنما
+➖➖➖➖➖➖➖➖➖
+زمان                          t   —---  ز   
+➖➖➖➖➖➖➖➖➖
+حداکثر گروه
+                 "mx"                   " حد" 
+➖➖➖➖➖➖➖➖➖
+افزودن مدیر                                                                               
+set    ——  اف م    
+➖➖➖➖➖➖➖➖➖
+حذف مدیر            
+   re  —---—  حذ م      
+➖➖➖➖➖➖➖➖➖
+بازدیدپست ها         
+ب ر      —---- ma o
+                                 ب خ     —------ ma f
+➖➖➖➖➖➖➖➖➖
+امار                          
+   s —--- ت
+➖➖➖➖➖➖➖➖➖
+فرستادن             
+  sa —--ب-                _     
+➖➖➖➖➖➖➖➖➖
+بگو       
+   sy —--- بنال
+➖➖➖➖➖➖➖➖➖
+ادد ال         
+ add   —— ادد
+➖➖➖➖➖➖➖➖➖
+تنظیم نام
+تن ن                              name
+➖➖➖➖➖➖➖➖➖
+تنظیم یوزر
+تن ی           user
+➖➖➖➖➖➖➖➖➖
+حذف یوزر
+حذ ی              duser
+
+➖➖➖➖➖➖➖➖➖
+راهنما
+"h"                "ه"
+]]
                                         return send(msg.chat_id_,msg.id_, txt)
                                       end
                                     end		
@@ -444,7 +496,7 @@ function get_bot (i, adigram)
                                               },
                                             },
                                             }, dl_cb, nil)
-                                        return send (msg.chat_id_, msg.id_, "<code>مخاطب به لیست مخاطب های من افزوده شد✔️</code>\n➖➖➖\n🚀کانال ما : @Lite_Team\n😉سازنده : @mohammadstar_98")
+                                        return send (msg.chat_id_, msg.id_, "😋😋")
                                       end
                                     elseif msg.content_.ID == "MessageChatDeleteMember" and msg.content_.id_ == bot_id then
                                       return rem(msg.chat_id_)
