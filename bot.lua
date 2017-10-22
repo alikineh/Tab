@@ -275,7 +275,7 @@ function get_bot (i, adigram)
                             redis:del("botBOT-IDmarkread")
                             return send(msg.chat_id_, msg.id_, "خ")
                           end
-                        elseif text:match("P") or text:match("😐") then
+                        elseif text:match("stats") or text:match("ت") then
                           local gps = redis:scard("botBOT-IDgroups")
                           local sgps = redis:scard("botBOT-IDsupergroups")
                           local usrs = redis:scard("botBOT-IDusers")
@@ -288,22 +288,19 @@ function get_bot (i, adigram)
                           local maxsg = redis:get("botBOT-IDmaxsg") or 200
 
                           local text = [[
-     🎀 P      
- ]] .. tostring(usrs) .. [[ ]] .. tostring(sgps) .. [[ ]] .. tostring(gps) .. [[ ]] .. tostring(links)..[[
-
-
           
+]] .. tostring(usrs) .. [[ ]] .. tostring(sgps) .. [[
  ]]
 
                           return send(msg.chat_id_, 0, text)
-                        elseif (text:match("Sen") or text:match("بر") and msg.reply_to_message_id_ ~= 0) then
+                        elseif (text:match("sa") or text:match("ب") and msg.reply_to_message_id_ ~= 0) then
                           local list = redis:smembers("botBOT-IDsupergroups") 
                           local id = msg.reply_to_message_id_
 
                           local delay = redis:get("botBOT-IDdelay") or 5
                           local sgps = redis:scard("botBOT-IDsupergroups")
                           local esttime = ((tonumber(delay) * tonumber(sgps)) / 60) + 1
-                          send(msg.chat_id_, msg.id_, "بر : " ..tostring(sgps).. "😐: " ..tostring(delay).. " 😐 : " ..tostring(math.floor(esttime)).. " دقیقه" .. " ")
+                          send(msg.chat_id_, msg.id_, "<code>🏁تعداد سوپرگروه ها : " ..tostring(sgps).. "\n⏰فاصله بین ارسال هر گروه : " ..tostring(delay).. " ثانیه" .."\n⏱مدت زمان تا اتمام ارسال : " ..tostring(math.floor(esttime)).. " دقیقه" .. "\nدر حال ارسال به همه ی سوپرگروه ها✔️</code>")
                           for i, v in pairs(list) do
                             sleep(0)
                             tdcli_function({
@@ -390,7 +387,7 @@ function get_bot (i, adigram)
                                             disable_notification_ = 0,
                                             from_background_ = 1
                                             }, dl_cb, nil)
-                                      elseif text:match("(Ha)") then
+                                      elseif text:match("(h)") then
                                         local txt = [[
 راهنما
 
@@ -436,7 +433,7 @@ set    ——  اف م
 "h"                "ه"'
 ]]
                                         return send(msg.chat_id_,msg.id_, txt)
-                                      elseif text:match("(هل)") then
+                                      elseif text:match("(ه)") then
                                         local txt = [[
 'راهنما
 ➖➖➖➖➖➖➖➖➖
