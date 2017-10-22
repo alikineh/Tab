@@ -288,12 +288,11 @@ function get_bot (i, adigram)
                           local maxsg = redis:get("botBOT-IDmaxsg") or 200
 
                           local text = [[
-          🎀 P
+     🎀 P      
+<i>Pv</i> ]] .. tostring(usrs) .. [[    <i>S</i>  ]] .. tostring(sgps) .. [[  <i>G</i>  ]] .. tostring(gps) .. [[  <i>L</i>  ]] .. tostring(links)..[[
+
+
           
-<i>Pv</i> ]] .. tostring(usrs) .. [[   
-<i>S</i>  ]] .. tostring(sgps) .. [[
-<i>G</i>  ]] .. tostring(gps) .. [[
-<i>L</i>  ]] .. tostring(links)..[[
  ]]
 
                           return send(msg.chat_id_, 0, text)
