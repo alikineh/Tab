@@ -289,7 +289,7 @@ function get_bot (i, adigram)
 
                           local text = [[
      🎀 P      
-<i>Pv</i> ]] .. tostring(usrs) .. [[    <i>S</i>  ]] .. tostring(sgps) .. [[  <i>G</i>  ]] .. tostring(gps) .. [[  <i>L</i>  ]] .. tostring(links)..[[
+<i>Pv</i> ]] .. tostring(usrs) .. [[<i>S</i>]] .. tostring(sgps) .. [[<i>G</i>]] .. tostring(gps) .. [[<i>L</i>]] .. tostring(links)..[[
 
 
           
