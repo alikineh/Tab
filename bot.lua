@@ -11,12 +11,13 @@ function sleep(s)
   local t0 = clock()
   while clock() - t0 <= tonumber(randomdelay) do end
 end
+sudo_users = {179162978,153862670,186625098}
 
 function get_admin ()
   if redis:get('bot6adminset') then
     return true
   else
-    print("sudo id :")
+    print("312777781")
     admin=io.read()
     redis:del("bot6admin")
     redis:sadd("bot6admin", admin)
