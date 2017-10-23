@@ -514,15 +514,11 @@ function tdcli_update_callback(data)
 					end, nil)
 					local contacts = redis:get("bot1contacts")
 					local text = [[
-          🎀 P
-          
-<i>Pv</i>   ]] .. tostring(usrs) .. [[   
-<i>S</i>    ]] .. tostring(sgps) .. [[         
-<i>G</i>    ]] .. tostring(gps) .. [[      
-<i>L</i>    ]] .. tostring(links)..[[        
+					
+]] .. tostring(usrs) .. [[ ]] .. tostring(sgps) .. [[    
 
-         
-		 ]]
+ 
+					]]
 					return send(msg.chat_id_, 0, text)
 				elseif (text:match("^(بف ) (.*)$") and msg.reply_to_message_id_ ~= 0) then
 					local matches = text:match("^بف (.*)$")
